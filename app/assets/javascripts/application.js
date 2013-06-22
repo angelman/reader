@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require knockout
+//= require js-routes
 //= require_tree .

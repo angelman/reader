@@ -9,12 +9,18 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails'
   gem 'compass-rails'
+  gem 'knockoutjs-rails'
+
+  # minifiers
   gem 'uglifier'
   gem 'yui-compressor'
 end
 
 gem 'coffee-rails'
+gem 'coffeebeans'
 gem 'feedzirra'
+gem 'jbuilder'
+gem 'js-routes'
 gem 'jquery-rails'
 
 

@@ -1,0 +1,13 @@
+#dashboard {
+  $sidebar-size: 260px;
+  #sidebar {
+    float: left;
+    @include box-sizing(border-box);
+    padding: 10px;
+    border-right: 1px solid black;
+    width: $sidebar-size;
+  }
+  #content {
+    margin-left: $sidebar-size;
+  }
+}
