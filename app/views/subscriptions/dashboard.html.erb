@@ -5,13 +5,19 @@
       <%= text_field_tag 'new_url', nil, :'data-bind' => 'value: new_subscription, valueUpdate: "input"' %>
       <%= submit_tag 'Subscribe', :'data-bind' => 'enable: new_subscription' %>
     </form>
-    <ul data-bind="foreach: subscriptions">
+    <ul>
+      <li data-bind="css: { selected: !selected_subscription() }">All Subscriptions</li>
+      <!-- ko foreach: subscriptions -->
       <li data-bind="text: title">
       </li>
+      <!-- /ko -->
     </ul>
   </div>
   <div id="content">
-    content
+    <ul data-bind="foreach: current_posts">
+      <li data-bind="text: title">
+      </li>
+    </ul>
   </div>
 </div>
 <%= coffee_script_tag do %>

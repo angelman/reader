@@ -1,1 +1,1 @@
-json.(subscription, :title)
+json.(subscription, :id, :title, :url)

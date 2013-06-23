@@ -3,5 +3,9 @@ class Post < ActiveRecord::Base
 
   serialize :entry
 
-  delegate :title, :url, :author, :summary, :content, :published, :to => :entry
+  delegate :title, :url, :author, :published, :to => :entry
+
+  def content
+    entry.content || entry.summary
+  end
 end

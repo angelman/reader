@@ -9,6 +9,7 @@ class Subscription < ActiveRecord::Base
     raise 'Not a valid feed' unless valid_feed?(feed)
     Subscription.transaction do
       s = Subscription.new
+      s.feed_url = feed.feed_url
       s.feed = feed
       s.save!
       s.refresh!(true)
@@ -26,7 +27,7 @@ class Subscription < ActiveRecord::Base
       new_entries = all ? self.feed.entries : self.feed.new_entries
       new_entries.each do |entry|
         post = posts.build
-        post.entry = entry.sanitize!
+        post.entry = entry.tap { |e| e.sanitize! }
         post.guid = entry.entry_id
         post.save!
       end
