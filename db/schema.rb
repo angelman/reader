@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622190452) do
+ActiveRecord::Schema.define(:version => 20130622232702) do
+
+  create_table "posts", :force => true do |t|
+    t.string   "guid"
+    t.text     "entry"
+    t.integer  "subscription_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "posts", ["subscription_id", "guid"], :name => "index_posts_on_subscription_id_and_guid", :unique => true
 
   create_table "subscriptions", :force => true do |t|
     t.string   "feed_url"
