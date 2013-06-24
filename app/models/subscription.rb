@@ -29,6 +29,7 @@ class Subscription < ActiveRecord::Base
         post = posts.build
         post.entry = entry.tap { |e| e.sanitize! }
         post.guid = entry.entry_id
+        post.published_at = post.entry.published
         post.save!
       end
       save!

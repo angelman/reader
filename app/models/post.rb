@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 
   delegate :title, :url, :author, :published, :to => :entry
 
+  default_scope order('published_at DESC')
+
   def content
     entry.content || entry.summary
   end

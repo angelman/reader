@@ -6,9 +6,9 @@
       <%= submit_tag 'Subscribe', :'data-bind' => 'enable: new_subscription' %>
     </form>
     <ul>
-      <li data-bind="css: { selected: !selected_subscription() }">All Subscriptions</li>
+      <li class="clickable" data-bind="css: { selected: !selected_subscription() }">All Subscriptions</li>
       <!-- ko foreach: subscriptions -->
-      <li data-bind="text: title">
+      <li class="clickable" data-bind="text: title, click: $root.set_current, css: { selected: $data === $root.selected_subscription() }">
       </li>
       <!-- /ko -->
     </ul>

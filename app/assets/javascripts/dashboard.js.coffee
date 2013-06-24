@@ -23,10 +23,14 @@ class @Dashboard
     .fail (data) ->
       alert "Error: #{data.responseJSON.message}"
 
-  get_posts: (subscription) ->
+  get_posts: (subscription) =>
     callback = =>
       if subscription?
         @current_posts(subscription.posts)
       else
         @current_posts(Subscription.posts)
     Subscription.get_posts(subscription, callback)
+
+  set_current: (subscription) =>
+    @selected_subscription(subscription)
+    @get_posts(subscription)
