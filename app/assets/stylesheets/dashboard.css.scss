@@ -23,18 +23,29 @@
       }
     }
   }
-  .post-title {
+  .post-sliver {
     @include user-select(none);
-    &.selected {
-      font-weight: bold;
-    }
   }
   .post {
     max-width: 720px;
-    padding: 20px;
+    padding: 40px;
     border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
     background: white;
+  }
+  .post-header {
+    margin-bottom: 40px;
+  }
+  .post-title {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: bold;
+    a {
+      text-decoration: none;
+    }
+  }
+  .post-author {
+    font-style: italic;
   }
 }

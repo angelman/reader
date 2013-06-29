@@ -5,6 +5,6 @@ ko.bindingHandlers.slideVisible =
   update: (element, valueAccessor) ->
     value = ko.utils.unwrapObservable(valueAccessor())
     if value
-      $(element).slideDown(300, -> $(document).trigger('height-changed'))
+      $(element).slideDown(200, -> $(document).trigger('height-changed'))
     else
-      $(element).slideUp(300, -> $(document).trigger('height-changed'))
+      $(element).slideUp(200, -> $(document).trigger('height-changed'))
