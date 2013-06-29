@@ -3,6 +3,7 @@ class @Dashboard
     @subscriptions = ko.observableArray(new Subscription(s) for s in subscriptions)
     @new_subscription = ko.observable('')
     @current_posts = ko.observableArray([])
+    @current_post = ko.observable()
     @selected_subscription = ko.observable(null)
 
     window.setTimeout =>
@@ -35,3 +36,9 @@ class @Dashboard
       return
     @selected_subscription(subscription)
     @get_posts(subscription)
+
+  toggle_post: (post) =>
+    if post == @current_post()
+      @current_post(null)
+    else
+      @current_post(post)

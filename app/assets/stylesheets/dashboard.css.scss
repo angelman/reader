@@ -23,4 +23,18 @@
       }
     }
   }
+  .post-title {
+    @include user-select(none);
+    &.selected {
+      font-weight: bold;
+    }
+  }
+  .post {
+    max-width: 720px;
+    padding: 20px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+  }
 }
