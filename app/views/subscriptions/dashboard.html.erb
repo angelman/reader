@@ -8,7 +8,7 @@
     <ul>
       <li class="clickable" data-bind="css: { selected: !selected_subscription() }, click: set_current">All Subscriptions</li>
       <!-- ko foreach: subscriptions -->
-      <li class="clickable" data-bind="text: title, click: $root.set_current, css: { selected: $data === $root.selected_subscription() }">
+      <li class="clickable" data-bind="text: title, attr: { title: title }, click: $root.set_current, css: { selected: $data === $root.selected_subscription() }">
       </li>
       <!-- /ko -->
     </ul>
@@ -16,17 +16,17 @@
   <div id="content">
     <ul data-bind="foreach: current_posts">
       <li>
-        <div class="post-sliver clickable" data-bind="text: title, click: $root.toggle_post, css: { selected: $data === $root.current_post() }"></div>
+        <div class="post-sliver clickable" data-bind="html: title, click: $root.toggle_post, css: { selected: $data === $root.current_post() }"></div>
         <div class="post" data-bind="slideVisible: $data === $root.current_post()">
           <div class="post-header">
             <div class="post-title">
-              <a target="_blank" data-bind="attr: { href: $data.url }, text: $data.title"></a>
+              <a target="_blank" data-bind="attr: { href: $data.url }, html: $data.title"></a>
             </div>
             <div class="post-author">
               <span>By </span><span data-bind="text: $data.author"></span>
             </div>
           </div>
-          <div data-bind="html: $data.content">
+          <div class="post-content" data-bind="html: $data.content">
           </div>
         </div>
       </li>

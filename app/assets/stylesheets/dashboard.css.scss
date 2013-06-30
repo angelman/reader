@@ -1,17 +1,33 @@
 #dashboard {
+  padding-top: 50px;
   $sidebar-size: 260px;
   #sidebar {
     float: left;
     position: fixed;
+    height: 100%;
     @include box-sizing(border-box);
     padding: 10px;
     width: $sidebar-size;
+    background-color: $gray;
+    border-right: 2px solid $blue;
+    input[type="text"] {
+      @include box-sizing(border-box);
+      width: 100%;
+    }
+    li {
+      margin: 0;
+      padding: 5px;
+      @include ellipsis;
+    }
+    li:hover {
+      color: white;
+    }
     li.selected {
-      color: blue;
+      color: white;
+      background-color: $green;
     }
   }
   #content {
-    border-left: 1px solid black;
     margin-left: $sidebar-size;
     padding: 10px;
     ul {
@@ -25,13 +41,18 @@
   }
   .post-sliver {
     @include user-select(none);
+    @include ellipsis;
   }
   .post {
     max-width: 720px;
+    min-width: 360px;
     padding: 40px;
-    border: 1px solid black;
+    overflow: hidden;
+    border: 2px solid $blue;
+    @include border-radius(16px);
     margin: 5px auto;
     background: white;
+
   }
   .post-header {
     margin-bottom: 40px;
@@ -47,5 +68,13 @@
   }
   .post-author {
     font-style: italic;
+  }
+  .post-content {
+    & > img {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 20px;
+    }
   }
 }
